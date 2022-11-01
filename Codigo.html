@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!--Mi estilo Css --> 
+    <link rel="stylesheet" href="css/estilo.css">
+
+
+
+    <!--Google fonts --> 
+    link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300;500&display=swap" rel="stylesheet">
+
+
+    <title>Proyecto de aula</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+  </head>
+  <body>
+    
+    <!-- Menu------------------------->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        
+        <div class="container-fluid">
+          <a class="navbar-brand" href="index.html"
+          >
+            <img class="logotipo" src="img/iconoCUC.png" alt="">
+
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0" >
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="baseTeorica.html">Base teorica</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Simulaciones
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="Codigo.html">Prueba</a></li>
+                  <li><a class="dropdown-item" href="#">Diagrama de flujo</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#">Diagrama de clase</a></li>
+                </ul>
+              </li>
+             
+            </ul>
+            
+          </div>
+        </div> 
+      
+    </nav>
+    <br><br> <br> <br>
+    
+     
+     <!-- Contenido-->
+     <br>
+
+     <div class="container-sm">
+
+    
+    
+        
+        <p class="h2" align="center">Arduino y sensor de pulso XD-50C </p>
+        <p  class="text-muted " >Se practica el ensamble de la placa Arduino y el sensor de pulso XD-50C conectados como: <br>
+            -GND del sensor al GND del Arduino<br>
+            -VCC del sensor al VCC del Arduino<br>
+            -Data del sensor al pin Analógico del Arduino (A0) <br>	
+            
+         
+         </p>
+         
+         <div class="container-fluid text-center">
+   
+             <img class="diagrama img-fluid" src="img/diagrama.jpg" alt="pantalla">
+               
+        </div>
+        <br><br>
+        <div class="container-sm">
+
+            <p class="h2" align="center">Programa:</p>
+           
+            </div>
+       </div>
+
+       <div class="container-sm border border-dark colorcodigo">
+        
+        <p  class="text-muted  " > 
+            const int PULSE_INPUT = A0; <br>
+            const int PULSE_BLINK = 13;  <br>
+            const int PULSE_FADE = 5;<br>
+            const int THRESHOLD = 550;<br>   
+            
+            PulseSensorPlayground pulseSensor;<br><br>
+            
+            void setup() {<br><br>
+             
+              Serial.begin(115200);<br><br>
+            
+              pulseSensor.analogInput(PULSE_INPUT);<br>
+              pulseSensor.blinkOnPulse(PULSE_BLINK);<br>
+              pulseSensor.fadeOnPulse(PULSE_FADE);<br><br>
+            
+              pulseSensor.setSerial(Serial);<br>
+              pulseSensor.setOutputType(OUTPUT_TYPE);<br>
+              pulseSensor.setThreshold(THRESHOLD);<br><br>
+            
+              .
+              if (!pulseSensor.begin()) {<br><br>
+               
+                for(;;) {<br>
+                  // Flash the led to show things didn't work.<br>
+                  digitalWrite(PULSE_BLINK, LOW);<br>
+                  delay(50);<br>
+                  digitalWrite(PULSE_BLINK, HIGH);<br>
+                  delay(50);<br>
+                }<br>
+              }<br>
+            }<br><br>
+            
+            void loop() {<br><br>
+              
+              delay(20);<br>
+            
+             pulseSensor.outputSample();<br><br>
+            
+              
+              if (pulseSensor.sawStartOfBeat()) {<br>
+               pulseSensor.outputBeat();<br>
+              }<br>
+            }<br><br>
+            
+         
+         </p>
+
+      </div>
+
+
+
+
+
+
+
+
+
+     </div>
+    
+
+    <!-- Abajo footer-->
+    <br><br><br><br><br>
+    
+    <footer>
+    <div class="row align-items-center">
+      <div class="col">
+        <img class="logotipofooter" src="img/iconoCUC.png" alt="logotipo">
+      </div>
+      <div class="col">
+       
+       
+        <p> adomingu24@cuc.edu.co <br> jperez172@cuc.edu.co  <br> nromerin@cuc.edu.co  <br> czea@cuc.edu.co</p>
+        
+      </div>
+      <div class="col">
+       
+      </div>
+    </div>
+  </footer>
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </body>
+</html>

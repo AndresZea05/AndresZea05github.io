@@ -1,0 +1,64 @@
+
+body{
+    font-family: 'Roboto Slab', serif;
+}
+h1, h2, h3, h4, h5, h6 {
+
+    font-weight: bold;
+}
+
+.logotipo{
+
+    width: 50px ;
+    padding: auto;
+}
+
+.Slider{
+
+    width:2000px ;
+    height: 400px;
+}
+
+footer{
+
+
+    background-color: #000000;
+    padding: 10px 0;
+    text-align: center;
+}
+
+footer .logotipofooter{
+
+    width: 150px ;
+   margin-bottom: 20px;
+}
+
+footer p{
+    color: antiquewhite;
+}
+
+.fotobaseterorica{
+
+    width: 350px;
+   justify-content: center;
+   align-items: center;
+}
+
+.esquema2{
+
+    width: 700px;
+  
+}
+.sensor{
+
+    width: 230px;
+}
+
+.diagrama{
+
+    width: 300px;
+}
+.colorcodigo{
+
+    background-color: #f3ee64;
+}
